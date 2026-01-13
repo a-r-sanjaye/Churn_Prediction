@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prediction Result</title>
+  <style>
+    body {
+      background: #111;
+      color: #fff;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 40px auto;
+      background: #222;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+      padding: 32px 24px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    p {
+      color: #eee;
+      font-size: 1.1rem;
+      margin: 8px 0;
+    }
+
+    h3 {
+      color: #90cdf4;
+      margin-top: 24px;
+    }
+
+    ul {
+      background: #333;
+      border-radius: 6px;
+      padding: 12px 16px;
+      list-style: none;
+    }
+
+    li {
+      margin-bottom: 6px;
+      color: #fff;
+    }
+
+    a {
+      display: block;
+      margin-top: 24px;
+      text-align: center;
+      background: #3182ce;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px;
+      border-radius: 5px;
+      font-size: 1rem;
+      transition: background 0.2s;
+    }
+
+    a:hover {
+      background: #2563eb;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div
+      style="background:#181818;border-radius:12px;padding:24px 16px;margin-bottom:24px;box-shadow:0 2px 8px rgba(0,0,0,0.3);">
+      <h2 style="text-align:center;font-size:1.5rem;margin-bottom:12px;">Customer Churn Dashboard</h2>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;">
+        <div>
+          <span style="font-size:1.1rem;">Status:</span>
+          {% if prediction == 'CHURN' %}
+          <span style="font-weight:bold;font-size:1.2rem;color:#ff4c4c;">{{ prediction }}</span>
+          {% else %}
+          <span style="font-weight:bold;font-size:1.2rem;color:#4caf50;">{{ prediction }}</span>
+          {% endif %}
+        </div>
+        <div>
+          <span style="font-size:1.1rem;">Probability:</span>
+          <span style="font-weight:bold;font-size:1.2rem;">{{ probability }}%</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Explanation section removed as it is not passed from backend yet -->
+
+    <a href="/">Predict Another</a>
+  </div>
+</body>
+
+</html>
